@@ -3,6 +3,7 @@ require_relative 'snake'
 require_relative 'food'
 
 class Game < Gosu::Window
+  # Game calls snake and food to perform game.
   def initialize
     @snake = Snake.new(30, 50.0, 50.0)
     @screen_size = @snake.size**2

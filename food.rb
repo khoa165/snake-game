@@ -1,4 +1,5 @@
 class Food
+  # Food represents food that snake will eat to score point and grows longer.
   attr_reader :x_pos, :y_pos
   def initialize(x_pos, y_pos, status)
     @x_pos = x_pos

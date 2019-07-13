@@ -1,6 +1,5 @@
-require_relative 'square'
-
 class Snake
+  # Snake allows user to traverse on screen to eat food and try to stay alive.
   attr_reader :size, :positions, :score
   attr_accessor :direction
   def initialize(size, x_start, y_start)
@@ -12,6 +11,7 @@ class Snake
     @frequeny = 0
   end
 
+  # represent head of the snake
   def head
     @positions.last
   end
@@ -21,7 +21,7 @@ class Snake
   end
 
   def auto_move
-    @frequeny += 1
+    @frequeny += 1 # decreases the speed of the snake.
     if @frequeny == 10
       @positions.shift unless @growing
       @positions.push(next_position)
@@ -44,13 +44,11 @@ class Snake
   end
 
   def eat_food?(food)
-    # return false if head[0] * @size > food.x_pos + food.size || food.x_pos > head[0] * @size + @size
-    # return false if head[1] * @size > food.y_pos + food.size || food.y_pos > head[1] * @size + @size
     return false unless head[0] == food.x_pos && head[1] == food.y_pos
 
     grows
     @score += 1
-    return true
+    true
   end
 
   def eat_itself?
